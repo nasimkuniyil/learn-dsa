@@ -1,0 +1,5 @@
+dsa-cpp/output/
+*/*/*/file
+*/*/*/*/*.o
+DSA_notes.txt
+messages.md
