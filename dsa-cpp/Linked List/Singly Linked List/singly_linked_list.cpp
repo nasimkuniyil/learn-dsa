@@ -3,22 +3,22 @@
 using namespace std;
 
 class Node {
- public:
+public:
   int data;
-  Node* next;
+  Node *next;
   Node(int val) : data(val), next(NULL) {}
 };
 
 class LinkedList {
-  Node* head;
+  Node *head;
   int size = 0;
 
- public:
+public:
   LinkedList() { head = NULL; }
 
   // Add node at begining
   void prependNode(int data) {
-    Node* newNode = new Node(data);
+    Node *newNode = new Node(data);
 
     if (head == NULL) {
       head = newNode;
@@ -33,8 +33,8 @@ class LinkedList {
 
   // Add node at end
   void appendNode(int data) {
-    Node* current = head;
-    Node* newNode = new Node(data);
+    Node *current = head;
+    Node *newNode = new Node(data);
 
     while (current->next) {
       current = current->next;
@@ -46,7 +46,7 @@ class LinkedList {
 
   // Insert at given position
   void insertNode(int position, int data) {
-    Node* newNode = new Node(data);
+    Node *newNode = new Node(data);
 
     if (position < 1 || position > size) {
       cout << position
@@ -60,7 +60,7 @@ class LinkedList {
       return;
     }
 
-    Node* current = head;
+    Node *current = head;
     int count = 2;
 
     while (count < position) {
@@ -79,8 +79,8 @@ class LinkedList {
       return;
     }
 
-    Node* current = head;
-    Node* prev = nullptr;
+    Node *current = head;
+    Node *prev = nullptr;
     while (current->next) {
       prev = current;
       current = current->next;
@@ -89,15 +89,15 @@ class LinkedList {
     delete current;
   }
 
- private:
-  void remove(Node* node) {
+private:
+  void remove(Node *node) {
     if (node) {
       remove(node->next);
       delete node;
     }
   }
 
- public:
+public:
   // Delete all nodes
   void clear() {
     remove(head);
@@ -106,18 +106,18 @@ class LinkedList {
   }
 
   // Find by value
-  void findNode(int data){
-    if(!head){
+  void findNode(int data) {
+    if (!head) {
       return;
     }
-    if(head->data == data){
+    if (head->data == data) {
       cout << "data found at 0 th index" << endl;
       return;
     }
-    Node* current = head->next;
+    Node *current = head->next;
     int index = 1;
-    while(current){
-      if(current->data==data){
+    while (current) {
+      if (current->data == data) {
         cout << "data found at " << index << "th index" << endl;
         return;
       }
@@ -127,26 +127,26 @@ class LinkedList {
     cout << data << "is not found" << endl;
   }
 
-  void getNode(int index);  // Get by index
+  void getNode(int index); // Get by index
 
-  void deleteNodeAt(int index);  // Delete at index
-  void print();                  // Print all nodes [X]
+  void deleteNodeAt(int index); // Delete at index
+  void print();                 // Print all nodes [X]
 
   // ===== Extra common methods =====
-  int length();                   // Return number of nodes
-  bool isEmpty();                 // Check if list is empty
-  void reverse();                 // Reverse the list
-  void removeDuplicates();        // Remove duplicate values
-  void sort();                    // Sort list in ascending order
-  void merge(LinkedList& other);  // Merge with another list
-  Node* middleNode();             // Get middle node
-  Node* nthFromEnd(int n);        // Get nth node from end
-  void swapNodes(int x, int y);   // Swap nodes by values
+  int length();                  // Return number of nodes
+  bool isEmpty();                // Check if list is empty
+  void reverse();                // Reverse the list
+  void removeDuplicates();       // Remove duplicate values
+  void sort();                   // Sort list in ascending order
+  void merge(LinkedList &other); // Merge with another list
+  Node *middleNode();            // Get middle node
+  Node *nthFromEnd(int n);       // Get nth node from end
+  void swapNodes(int x, int y);  // Swap nodes by values
 };
 
 // we can write like this with scope resolution operator (::)
 void LinkedList::print() {
-  Node* temp = head;
+  Node *temp = head;
 
   cout << "linked list items : " << endl;
   while (temp != NULL) {

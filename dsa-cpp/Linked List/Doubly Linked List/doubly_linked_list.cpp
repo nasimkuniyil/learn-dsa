@@ -11,6 +11,6 @@ struct Node {
 };
 
 int main() {
-  cout << "hey nasim K" << endl;
+  cout << "Hey Nasim, are you ready to learn Doubly Linked List?" << endl;
   return 0;
 }
